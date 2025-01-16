@@ -12,14 +12,9 @@ const Lab3 = () => {
                 style={styles.tipStyle}
             />
             <Text style={styles.baseText}>
-                Em vao doi bang{" "}
-                <Text style={[styles.boldText, colorText("red")]}>vang do</Text>
+                Em vao doi bang <Text style={styles.boldText}>vang do</Text>
             </Text>
         </View>
     );
 };
-export default ViewComponent;
-
-const colorText = (color) => ({
-    color,
-});
+export default Lab3;
