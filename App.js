@@ -1,8 +1,8 @@
 import react from "react";
 
-import Lab5 from "./lab5bai2";
+import DetailScreen from "./lab5bai3";
 const App = () => {
-  return <Lab5></Lab5>;
+  return <DetailScreen></DetailScreen>;
 };
 
 export default App; 
