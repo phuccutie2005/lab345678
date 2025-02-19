@@ -16,7 +16,7 @@ export default function Screen1({ navigation }) {
       />
       <Button
         title="ĐI TỚI MÀN HÌNH CHI TIẾT"
-        onPress={() => navigation.navigate("Detail", { userName: name, userId: "123" })}
+        onPress={() => navigation.navigate("Screen2", { userName: name, userId: "123" })}
       />
     </View>
   );
