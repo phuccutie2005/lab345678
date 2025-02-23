@@ -1,0 +1,19 @@
+{
+  "users": [
+    {
+      "name": "Trần Duy Hải",
+      "date": "2013-01-21",
+      "id": "1"
+    },
+    {
+      "id": "2",
+      "name": "Nguyễn Văn B",
+      "date": "2023-01-22"
+    },
+    {
+      "id": "3",
+      "name": "Trần Văn Danh",
+      "date": "2023-01-11"
+    }
+  ]
+}
