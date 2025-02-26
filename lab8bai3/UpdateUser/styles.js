@@ -18,4 +18,11 @@ export default StyleSheet.create({
         borderRadius: 8,
         marginBottom: 12,
     },
+    avatar: {
+        width: 100,
+        height: 100,
+        borderRadius: 50,
+        alignSelf: 'center',
+        marginVertical: 10,
+    }
 });

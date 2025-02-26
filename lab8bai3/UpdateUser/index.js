@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, Button, Alert } from 'react-native';
+import { View, Text, TextInput, Button, Alert, Image, TouchableOpacity } from 'react-native';
+import * as ImagePicker from 'expo-image-picker';
 import axios from 'axios';
 import styles from './styles';
 
@@ -7,13 +8,35 @@ const EditUserScreen = ({ route, navigation }) => {
     const { user } = route.params;
     const [name, setName] = useState(user.name);
     const [date, setDate] = useState(user.date);
+    const [avatar, setAvatar] = useState(user.avatar || 'https://i.pravatar.cc/150');
+
+    // Hàm chọn ảnh từ thư viện
+    const pickImage = async () => {
+        const permissionResult = await ImagePicker.requestMediaLibraryPermissionsAsync();
+        if (!permissionResult.granted) {
+            Alert.alert("Quyền bị từ chối", "Bạn cần cấp quyền để chọn ảnh.");
+            return;
+        }
+
+        const result = await ImagePicker.launchImageLibraryAsync({
+            mediaTypes: ImagePicker.MediaTypeOptions.Images,
+            allowsEditing: true,
+            aspect: [1, 1],
+            quality: 1,
+        });
+
+        if (!result.canceled) {
+            setAvatar(result.assets[0].uri);
+        }
+    };
 
     // Hàm gọi API để cập nhật thông tin người dùng
     const updateUser = async () => {
         try {
-            await axios.put(`http://192.168.1.100:5000/users/${user.id}`, {
+            await axios.put(`http://192.168.100.207:5000/users/${user.id}`, {
                 name,
                 date,
+                avatar,
             });
             Alert.alert('Thành công', 'Cập nhật thông tin người dùng thành công!');
             navigation.goBack(); // Quay lại màn hình trước
@@ -26,6 +49,9 @@ const EditUserScreen = ({ route, navigation }) => {
     return (
         <View style={styles.container}>
             <Text style={styles.title}>Chỉnh sửa tài khoản {user.name}</Text>
+            <TouchableOpacity onPress={pickImage}>
+                <Image source={{ uri: avatar }} style={styles.avatar} />
+            </TouchableOpacity>
             <TextInput
                 style={styles.input}
                 value={name}

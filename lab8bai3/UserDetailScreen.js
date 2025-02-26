@@ -10,7 +10,7 @@ const UserDetailScreen = ({ route, navigation }) => {
     useEffect(() => {
         const fetchUserDetail = async () => {
             try {
-                const response = await axios.get(`http://192.168.1.100:5000/users/${id}`);
+                const response = await axios.get(`http://192.168.100.207:5000/users/${id}`);
                 setUser(response.data);
             } catch (error) {
                 Alert.alert('Lỗi', 'Không thể lấy thông tin tài khoản');
@@ -24,7 +24,7 @@ const UserDetailScreen = ({ route, navigation }) => {
     // Xoá người dùng
     const deleteUser = async () => {
         try {
-            await axios.delete(`http://192.168.1.100:5000/users/${id}`);
+            await axios.delete(`http://192.168.100.207:5000/users/${id}`);
             Alert.alert('Thành công', 'Xoá người dùng thành công!');
             navigation.goBack(); // Quay về màn hình trước đó
         } catch (error) {

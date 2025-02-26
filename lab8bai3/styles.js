@@ -19,6 +19,12 @@ const styles = StyleSheet.create({
         marginBottom: 10,
         color: '#555',
     },
+    avatar: {
+        width: 100,
+        height: 100,
+        borderRadius: 50,
+        marginVertical: 10,
+    }
 });
 
 export default styles;

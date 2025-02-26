@@ -15,7 +15,7 @@ const App = () => {
         <Stack.Screen name="UserList" component={UserListScreen} options={{ title: 'Danh sách người dùng' }} />
         <Stack.Screen name="EditUser" component={EditUserScreen} options={{ title: 'Chỉnh sửa người dùng' }} />
         <Stack.Screen name="CreateUser" component={CreateUserScreen} options={{ title: 'Tạo người dùng' }} />
-        <Stack.Screen name="UserCreated" component={UserCreatedScreen} />
+        <Stack.Screen name="UserCreated" component={UserCreatedScreen} options={{ title: 'Tạo người dùng' }} />
         <Stack.Screen
           name="UserDetail"
           component={UserDetailScreen}
@@ -27,3 +27,5 @@ const App = () => {
 };
 
 export default App;
+
+
